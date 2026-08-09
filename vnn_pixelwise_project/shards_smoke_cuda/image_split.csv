@@ -1,0 +1,17 @@
+site_id,patient_id,image_id,laterality,view,age,cancer,biopsy,invasive,BIRADS,implant,density,machine_id,difficult_negative_case,image_path,split
+1,32472,183781004,R,MLO,70.0,0,0,0,2.0,0,C,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/32472/183781004.dcm,test
+2,40121,1762706664,R,CC,51.0,0,0,0,,0,UNKNOWN,29,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/40121/1762706664.dcm,test
+1,41369,1721828196,L,CC,69.0,0,1,0,0.0,0,C,49,True,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/41369/1721828196.dcm,test
+1,60410,840887128,L,CC,65.0,0,0,0,,0,B,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/60410/840887128.dcm,test
+1,10317,226635741,L,CC,58.0,0,1,0,0.0,0,C,49,True,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/10317/226635741.dcm,train
+1,13312,358808391,L,CC,47.0,0,0,0,1.0,0,B,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/13312/358808391.dcm,train
+1,13751,1647903931,L,MLO,65.0,0,0,0,1.0,0,B,93,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/13751/1647903931.dcm,train
+2,21287,822645439,R,CC,64.0,0,0,0,,0,UNKNOWN,29,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/21287/822645439.dcm,train
+1,2205,75545464,L,MLO,61.0,0,0,0,1.0,0,B,93,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/2205/75545464.dcm,train
+1,31768,1821121389,R,CC,58.0,0,0,0,1.0,0,B,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/31768/1821121389.dcm,train
+1,36034,810135280,L,CC,67.0,1,1,1,0.0,0,B,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/36034/810135280.dcm,train
+1,38411,684859384,R,MLO,60.0,0,0,0,,0,C,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/38411/684859384.dcm,train
+1,42379,1915586201,L,CC,63.0,0,0,0,,0,B,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/42379/1915586201.dcm,train
+2,47029,2058800363,R,MLO,50.0,0,0,0,0.0,0,UNKNOWN,21,True,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/47029/2058800363.dcm,train
+1,5106,1031470114,L,CC,59.0,0,0,0,1.0,0,A,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/5106/1031470114.dcm,train
+1,61135,521410525,R,MLO,47.0,0,0,0,1.0,0,B,49,False,/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images/61135/521410525.dcm,train

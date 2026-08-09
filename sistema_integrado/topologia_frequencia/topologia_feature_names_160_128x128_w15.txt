@@ -1,0 +1,13 @@
+topo_freq_media
+topo_freq_std
+topo_freq_p50
+topo_freq_p85
+topo_freq_p95
+topo_area_segmentada_ratio
+topo_n_segmentos
+topo_maior_segmento_ratio
+topo_area_media_segmento
+topo_freq_media_segmentos
+topo_passa_alta_media_segmentos
+topo_passa_baixa_media_segmentos
+topo_razao_alta_baixa_media_segmentos

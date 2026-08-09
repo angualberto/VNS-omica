@@ -1,0 +1,11 @@
+Comparacao da rede neural MLP para prever cancer/suspeita:
+Backend: PyTorch MLP com CUDA quando disponivel.
+
+- rede_neural_sem_filtros: usa apenas features basicas de intensidade/estatistica.
+- rede_neural_com_filtros: usa tambem filtros baixa/alta frequencia, gradiente, Fourier e Wavelet.
+
+             comparacao modelo    threshold  n_features  total  pred_nodulo  pred_sem_nodulo  taxa_pred_nodulo  score_medio  accuracy  precision_nodulo  recall_nodulo  f1_nodulo  roc_auc   pr_auc   backend device
+rede_neural_sem_filtros    mlp 7.167042e-04          45    348          345                3          0.991379     0.412702  0.258621          0.252174       1.000000   0.402778 0.529528 0.273030 torch_mlp   cuda
+rede_neural_com_filtros    mlp 8.939772e-07         120    348          337               11          0.968391     0.287394  0.275862          0.255193       0.988506   0.405660 0.475756 0.242863 torch_mlp   cuda
+
+Maior acerto: rede_neural_com_filtros (accuracy=0.2759, f1_suspeito=0.4057).

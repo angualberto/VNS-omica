@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+pydicom
+opencv-python
+pillow
+tqdm
+matplotlib
+joblib
+torch==2.6.0
+torchvision==0.21.0
+torchaudio==2.6.0
+xgboost
+lightgbm

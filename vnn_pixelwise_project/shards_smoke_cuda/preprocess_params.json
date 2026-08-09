@@ -1,0 +1,46 @@
+{
+  "input_csv": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train.csv",
+  "images_dir": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/rsna_kaggle_oficial/train_images",
+  "manifest": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/iaimgem/vnn_pixelwise_project/shards_smoke_cuda/manifest.csv",
+  "shards_dir": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/iaimgem/vnn_pixelwise_project/shards_smoke_cuda/shards",
+  "preprocessing": {
+    "patch_size": 128,
+    "top_k_patches": 4,
+    "shard_size": 32,
+    "min_tissue_fraction": 0.05,
+    "background_threshold": 0.02,
+    "background_padding": 16,
+    "stored_dtype": "float16",
+    "seed": 42,
+    "test_size": 0.25,
+    "dicom_only": true,
+    "monochrome1_inverted": true,
+    "windowing": "WindowCenter/WindowWidth when present",
+    "normalization": "float32 [0,1] before feature extraction",
+    "black_background_removed": true,
+    "channels": [
+      "gray",
+      "gradient_magnitude",
+      "sobel_x",
+      "sobel_y",
+      "local_entropy",
+      "fft_low",
+      "fft_high",
+      "pseudo_color_green_purple_family"
+    ],
+    "supervision": "global cancer label only; no pseudo-mask ground truth"
+  },
+  "images": 16,
+  "patches": 64,
+  "shards": 2,
+  "read_errors": 0,
+  "patient_split_leakage": false,
+  "split_images": {
+    "train": 12,
+    "test": 4
+  },
+  "split_patients": {
+    "test": 4,
+    "train": 12
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "comparacao": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/iaimgem/sistema_integrado/topologia_frequencia/comparacao_sem_passa_baixa_topologia.csv",
+  "metricas_topologia": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/iaimgem/sistema_integrado/topologia_frequencia/metricas_topologia_frequencia.csv",
+  "segmentos": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/iaimgem/sistema_integrado/topologia_frequencia/segmentos_topologia_frequencia.csv",
+  "pasta_png": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/iaimgem/sistema_integrado/topologia_frequencia",
+  "escopo": "somente processamento de imagem: filtros, frequencia dominante pixel a pixel e segmentacao topologica"
+}

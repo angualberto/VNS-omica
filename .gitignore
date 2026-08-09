@@ -1,0 +1,51 @@
+# Dados e datasets
+dados/
+TCIA-PT-all/
+*.zip
+
+# Caches de treino / saída volumosa
+cache_*/
+saida_*
+resultados_*
+treino_*
+sistema_integrado_rsna_csv_treino/
+sistema_integrado_rsna_teste/
+sistema_integrado_rsna_teste_cuda/
+
+# NVHPC (compilador)
+nvhpc/
+nvhpc_instalacao/
+logs_nvhpc/
+
+# ..venv e python
+.venv/
+__pycache__/
+*.pyc
+kagglehub_cache/
+kaggle.json
+
+# Bancos de dados auxiliares
+backup-*/
+backup_*/
+*.gpg
+
+# Modelos e artefatos grandes
+*.joblib
+*.pt
+*.pth
+*.onnx
+
+# Ambiente / editores
+.vscode/
+.pylintrc
+*.log
+
+# Docs enviados
+*.docx
+packages.microsoft.gpg
+tecnlogis.txt
+
+# Projetos externos
+petrou-main/
+petrou-main (2)/
+petrou-main.zip

@@ -1,0 +1,12 @@
+              precision    recall  f1-score   support
+
+  SEM_NODULO       1.00      0.00      0.01       261
+      NODULO       0.25      1.00      0.40        87
+
+    accuracy                           0.25       348
+   macro avg       0.63      0.50      0.20       348
+weighted avg       0.81      0.25      0.11       348
+
+Threshold: 0.041242
+ROC AUC: 0.4599
+Precision-Recall AUC: 0.2429

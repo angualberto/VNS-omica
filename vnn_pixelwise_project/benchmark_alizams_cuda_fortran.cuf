@@ -1,0 +1,101 @@
+module alizams_cuda_kernel
+  use cudafor
+  implicit none
+contains
+  attributes(global) subroutine color_metrics_kernel(gray, mask, lut_bin, lut_hue, &
+      lut_sat, lut_val, lut_weight, npixels, nlut, output)
+    integer, value :: npixels, nlut
+    real, device :: gray(:), lut_hue(:), lut_sat(:), lut_val(:), lut_weight(:), output(:,:)
+    integer, device :: mask(:), lut_bin(:)
+    real, shared :: sums(11)
+    integer :: thread, image, position, pixel, idx, color
+    real :: intensity, weight, previous, denominator
+
+    thread = threadIdx%x
+    image = blockIdx%x
+    if (thread <= 11) sums(thread) = 0.0
+    call syncthreads()
+    pixel = thread
+    do while (pixel <= npixels)
+      position = (image - 1) * npixels + pixel
+      if (mask(position) /= 0) then
+        intensity = min(1.0, max(0.0, gray(position)))
+        idx = min(nlut, max(1, int(intensity * real(nlut)) + 1))
+        color = lut_bin(idx)
+        weight = lut_weight(idx)
+        previous = atomicadd(sums(color + 3), weight)
+        previous = atomicadd(sums(1), weight * lut_hue(idx))
+        previous = atomicadd(sums(2), weight * lut_sat(idx))
+        previous = atomicadd(sums(3), weight * lut_val(idx))
+      end if
+      pixel = pixel + blockDim%x
+    end do
+    call syncthreads()
+    if (thread == 1) then
+      denominator = max(1.0e-12, sum(sums(4:11)))
+      output(1, image) = sums(1) / denominator
+      output(2, image) = sums(2) / denominator
+      output(3, image) = sums(3) / denominator
+      output(4:11, image) = sums(4:11) / denominator
+    end if
+  end subroutine color_metrics_kernel
+end module alizams_cuda_kernel
+
+program benchmark_alizams_cuda_fortran
+  use cudafor
+  use alizams_cuda_kernel
+  implicit none
+  integer :: nimages, height, width, nlut, npixels, elements, iterations, i, ierr, argc
+  real, allocatable :: gray(:), lut_hue(:), lut_sat(:), lut_val(:), lut_weight(:), result(:,:), reference(:,:)
+  integer, allocatable :: mask(:), lut_bin(:)
+  real, device, allocatable :: d_gray(:), d_lut_hue(:), d_lut_sat(:), d_lut_val(:), d_lut_weight(:), d_result(:,:)
+  integer, device, allocatable :: d_mask(:), d_lut_bin(:)
+  character(len=512) :: input_file, argument
+  integer :: start_count, end_count, rate
+  real :: elapsed, maximum_difference
+
+  argc = command_argument_count()
+  if (argc < 1) stop "usage: benchmark_alizams_cuda_fortran input.bin [iterations]"
+  call get_command_argument(1, input_file)
+  iterations = 30
+  if (argc >= 2) then
+    call get_command_argument(2, argument)
+    read(argument, *) iterations
+  end if
+  open(10, file=trim(input_file), access="stream", form="unformatted", status="old")
+  read(10) nimages, height, width, nlut
+  npixels = height * width
+  elements = nimages * npixels
+  allocate(gray(elements), mask(elements), lut_bin(nlut), lut_hue(nlut), lut_sat(nlut), lut_val(nlut), lut_weight(nlut))
+  allocate(result(11, nimages), reference(11, nimages))
+  read(10) gray
+  read(10) mask
+  read(10) lut_bin
+  read(10) lut_hue
+  read(10) lut_sat
+  read(10) lut_val
+  read(10) lut_weight
+  read(10) reference
+  close(10)
+  allocate(d_gray(elements), d_mask(elements), d_lut_bin(nlut), d_lut_hue(nlut), d_lut_sat(nlut), d_lut_val(nlut), d_lut_weight(nlut))
+  allocate(d_result(11, nimages))
+  d_gray = gray; d_mask = mask; d_lut_bin = lut_bin
+  d_lut_hue = lut_hue; d_lut_sat = lut_sat; d_lut_val = lut_val; d_lut_weight = lut_weight
+  call color_metrics_kernel<<<nimages, 256>>>(d_gray, d_mask, d_lut_bin, d_lut_hue, d_lut_sat, d_lut_val, d_lut_weight, npixels, nlut, d_result)
+  result = d_result
+  ierr = cudaDeviceSynchronize()
+  maximum_difference = maxval(abs(result - reference))
+  if (maximum_difference > 2.0e-3) stop "CUDA Fortran output differs from Python reference"
+  call system_clock(start_count, rate)
+  do i = 1, iterations
+    call color_metrics_kernel<<<nimages, 256>>>(d_gray, d_mask, d_lut_bin, d_lut_hue, d_lut_sat, d_lut_val, d_lut_weight, npixels, nlut, d_result)
+  end do
+  ierr = cudaDeviceSynchronize()
+  call system_clock(end_count)
+  elapsed = real(end_count - start_count) / real(rate)
+  print '(A,L1)', "dominant_metrics_valid: ", maximum_difference <= 2.0e-3
+  print '(A,ES12.4)', "max_numeric_difference: ", maximum_difference
+  print '(A,I0)', "batch_size: ", nimages
+  print '(A,F10.4)', "milliseconds_per_batch: ", elapsed / real(iterations) * 1000.0
+  print '(A,F12.2)', "images_per_second: ", real(nimages * iterations) / elapsed
+end program benchmark_alizams_cuda_fortran

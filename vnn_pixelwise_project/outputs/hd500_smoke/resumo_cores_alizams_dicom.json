@@ -1,0 +1,44 @@
+{
+  "method": "LUT AlizaMS black_rainbow_lut applied to normalized DICOM pixels inside breast mask",
+  "scientific_note": "These colors are pseudocolors derived from grayscale intensity, not biological tissue colors or ground truth.",
+  "input_csv": "/media/angualberto/HD500_TRABALHO/cbis_ddsm/calc_case_description_train_set_pixelwise.csv",
+  "images_dir": "/media/angualberto/HD500_TRABALHO/cbis_ddsm",
+  "lut_file": "/media/angualberto/423ff97c-bf80-4bc9-9621-cf3ec081fd25/iaimgem/sistema_integrado_rsna_csv_treino/alizams_rainbowb_cores_todas_imagens/alizams_luts.h",
+  "backend": "fortran_openmp",
+  "lut_label": "AlizaMS RainbowB 1536",
+  "lut_size": 1536,
+  "image_size": 256,
+  "images_requested": 100,
+  "images_success": 100,
+  "read_errors": 0,
+  "summary": [
+    {
+      "classe": "cancer_verdadeiro",
+      "n_imagens": 50,
+      "cor_predominante_grupo": "verde",
+      "hue_medio_graus": 194.16028372582812,
+      "freq_vermelho_media": 0.016368032882762472,
+      "freq_laranja_media": 0.014386764777050323,
+      "freq_amarelo_media": 0.03238562224734922,
+      "freq_verde_media": 0.29314890981313857,
+      "freq_ciano_media": 0.15166798078102173,
+      "freq_azul_media": 0.24328627915831064,
+      "freq_roxo_media": 0.15968778001361206,
+      "freq_rosa_media": 0.08906863032675381
+    },
+    {
+      "classe": "sem_cancer",
+      "n_imagens": 50,
+      "cor_predominante_grupo": "azul",
+      "hue_medio_graus": 195.61883183076628,
+      "freq_vermelho_media": 0.014257914336194272,
+      "freq_laranja_media": 0.010451342596924944,
+      "freq_amarelo_media": 0.014123530291693196,
+      "freq_verde_media": 0.22361214189537662,
+      "freq_ciano_media": 0.22546218198212642,
+      "freq_azul_media": 0.32650215755260575,
+      "freq_roxo_media": 0.1172833651534116,
+      "freq_rosa_media": 0.06830736619166672
+    }
+  ]
+}

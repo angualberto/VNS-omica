@@ -1,0 +1,15 @@
+torch
+torchvision
+numpy
+pandas
+opencv-python
+scikit-image
+scikit-learn
+matplotlib
+tqdm
+pytest
+pydicom
+pylibjpeg
+pylibjpeg-libjpeg
+pylibjpeg-openjpeg
+gdcm

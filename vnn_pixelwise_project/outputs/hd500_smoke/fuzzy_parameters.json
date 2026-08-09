@@ -1,0 +1,392 @@
+{
+  "inference": "Mamdani",
+  "and_operator": "min",
+  "or_operator": "max",
+  "aggregation": "max",
+  "defuzzification": "centroid",
+  "feature_sets": {
+    "hue_medio": {
+      "baixo": [
+        230.0,
+        238.0,
+        244.0
+      ],
+      "medio": [
+        238.0,
+        246.0,
+        254.0
+      ],
+      "alto": [
+        247.0,
+        254.0,
+        275.0
+      ]
+    },
+    "freq_roxo": {
+      "baixo": [
+        0.12,
+        0.2,
+        0.27
+      ],
+      "medio": [
+        0.18,
+        0.3,
+        0.43
+      ],
+      "alto": [
+        0.32,
+        0.45,
+        0.62
+      ]
+    },
+    "freq_rosa": {
+      "baixo": [
+        0.08,
+        0.15,
+        0.24
+      ],
+      "medio": [
+        0.14,
+        0.25,
+        0.39
+      ],
+      "alto": [
+        0.28,
+        0.42,
+        0.62
+      ]
+    },
+    "freq_azul": {
+      "baixo": [
+        0.12,
+        0.2,
+        0.3
+      ],
+      "medio": [
+        0.18,
+        0.3,
+        0.43
+      ],
+      "alto": [
+        0.32,
+        0.47,
+        0.64
+      ]
+    },
+    "freq_verde": {
+      "baixo": [
+        0.03,
+        0.08,
+        0.14
+      ],
+      "medio": [
+        0.06,
+        0.14,
+        0.25
+      ],
+      "alto": [
+        0.18,
+        0.3,
+        0.48
+      ]
+    },
+    "magenta_ratio": {
+      "baixo": [
+        0.65,
+        0.95,
+        1.2
+      ],
+      "medio": [
+        0.85,
+        1.2,
+        1.7
+      ],
+      "alto": [
+        1.35,
+        1.85,
+        2.6
+      ]
+    },
+    "roxo_menos_azul": {
+      "baixo": [
+        -0.18,
+        -0.06,
+        0.03
+      ],
+      "medio": [
+        -0.05,
+        0.03,
+        0.14
+      ],
+      "alto": [
+        0.08,
+        0.19,
+        0.36
+      ]
+    },
+    "magenta_minus_cold": {
+      "baixo": [
+        -0.35,
+        -0.14,
+        0.02
+      ],
+      "medio": [
+        -0.1,
+        0.04,
+        0.22
+      ],
+      "alto": [
+        0.12,
+        0.3,
+        0.55
+      ]
+    },
+    "gradiente_medio": {
+      "baixo": [
+        0.05,
+        0.18,
+        0.32
+      ],
+      "medio": [
+        0.18,
+        0.38,
+        0.62
+      ],
+      "alto": [
+        0.48,
+        0.72,
+        1.0
+      ]
+    },
+    "gradiente_top": {
+      "baixo": [
+        0.18,
+        0.48,
+        0.85
+      ],
+      "medio": [
+        0.45,
+        0.95,
+        1.75
+      ],
+      "alto": [
+        1.25,
+        2.1,
+        4.5
+      ]
+    },
+    "entropia_local": {
+      "baixo": [
+        2.2,
+        3.3,
+        4.2
+      ],
+      "medio": [
+        3.2,
+        4.3,
+        5.2
+      ],
+      "alto": [
+        4.6,
+        5.5,
+        6.5
+      ]
+    },
+    "wavelet_high": {
+      "baixo": [
+        0.001,
+        0.004,
+        0.009
+      ],
+      "medio": [
+        0.004,
+        0.01,
+        0.022
+      ],
+      "alto": [
+        0.016,
+        0.032,
+        0.075
+      ]
+    },
+    "fft_high": {
+      "baixo": [
+        0.015,
+        0.035,
+        0.065
+      ],
+      "medio": [
+        0.035,
+        0.08,
+        0.145
+      ],
+      "alto": [
+        0.105,
+        0.175,
+        0.3
+      ]
+    },
+    "high_low_ratio": {
+      "baixo": [
+        0.01,
+        0.04,
+        0.1
+      ],
+      "medio": [
+        0.05,
+        0.14,
+        0.28
+      ],
+      "alto": [
+        0.2,
+        0.42,
+        0.8
+      ]
+    },
+    "score_vnn": {
+      "baixo": [
+        0.2,
+        0.38,
+        0.52
+      ],
+      "medio": [
+        0.38,
+        0.55,
+        0.7
+      ],
+      "alto": [
+        0.62,
+        0.78,
+        0.93
+      ]
+    },
+    "score_cnn": {
+      "baixo": [
+        0.2,
+        0.38,
+        0.52
+      ],
+      "medio": [
+        0.38,
+        0.55,
+        0.7
+      ],
+      "alto": [
+        0.62,
+        0.78,
+        0.93
+      ]
+    },
+    "score_hybrid": {
+      "baixo": [
+        0.2,
+        0.38,
+        0.52
+      ],
+      "medio": [
+        0.38,
+        0.55,
+        0.7
+      ],
+      "alto": [
+        0.62,
+        0.78,
+        0.93
+      ]
+    },
+    "attention_max": {
+      "baixo": [
+        0.15,
+        0.25,
+        0.38
+      ],
+      "medio": [
+        0.25,
+        0.43,
+        0.62
+      ],
+      "alto": [
+        0.52,
+        0.7,
+        0.9
+      ]
+    },
+    "attention_entropy": {
+      "baixo": [
+        0.15,
+        0.32,
+        0.48
+      ],
+      "medio": [
+        0.32,
+        0.52,
+        0.7
+      ],
+      "alto": [
+        0.62,
+        0.8,
+        0.98
+      ]
+    },
+    "attention_concentration": {
+      "baixo": [
+        0.15,
+        0.27,
+        0.39
+      ],
+      "medio": [
+        0.28,
+        0.45,
+        0.62
+      ],
+      "alto": [
+        0.52,
+        0.7,
+        0.92
+      ]
+    }
+  },
+  "output_sets": {
+    "baixa": [
+      "trap",
+      [
+        0.0,
+        0.0,
+        0.22,
+        0.44
+      ]
+    ],
+    "intermediaria": [
+      "tri",
+      [
+        0.26,
+        0.5,
+        0.74
+      ]
+    ],
+    "alta": [
+      "trap",
+      [
+        0.56,
+        0.78,
+        1.0,
+        1.0
+      ]
+    ]
+  },
+  "rules": {
+    "R1": "magenta elevado com entropia e gradiente top elevados",
+    "R2": "roxo e rosa elevados com azul baixo",
+    "R3": "score VNN alto com atencao concentrada",
+    "R4": "score hibrido alto com predominio magenta sobre cores frias",
+    "R5": "detalhe espectral wavelet/FFT e entropia elevados",
+    "R6": "magenta, gradiente top e entropia baixos",
+    "R7": "density B/C reforca sinal magenta",
+    "R8": "view MLO reforca score VNN elevado",
+    "R9": "difficult negative com VNN alto sem suporte magenta reduz tendencia",
+    "R10": "discordancia CNN baixa/VNN alta com suporte magenta"
+  },
+  "intended_use": "statistical cancer tendency; not a medical diagnosis",
+  "calibration": "fixed expert-defined rules; no test-set fitting performed by these scripts",
+  "attention_note": "attention is an MIL weighting signal and is not segmentation ground truth"
+}
